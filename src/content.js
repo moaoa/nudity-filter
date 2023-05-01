@@ -1,7 +1,8 @@
+import { browser, image, loadLayersModel} from '@tensorflow/tfjs';
 let isExtensionOn = true
 // Load MobileNet model
 let mobileNet;
-tf.loadLayersModel('https://tfhub.dev/google/imagenet/mobilenet_v2_100_224/feature_vector/5')
+loadLayersModel('https://tfhub.dev/google/imagenet/mobilenet_v2_100_224/feature_vector/5')
   .then(model => {
     mobileNet = model;
   });
@@ -11,8 +12,8 @@ async function blurImages(images) {
   // Loop through images and classify each one
   for (let i = 0; i < images.length; i++) {
     const img = images[i];
-    const tensor = tf.browser.fromPixels(img);
-    const resized = tf.image.resizeBilinear(tensor, [224, 224]);
+    const tensor = browser.fromPixels(img);
+    const resized = image.resizeBilinear(tensor, [224, 224]);
     const batched = resized.expandDims(0);
     const predictions = await mobileNet.predict(batched).data();
     tensor.dispose();
