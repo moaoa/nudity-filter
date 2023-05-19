@@ -6,7 +6,6 @@ dist/
 build/
 out/
 tmp/
-public/
 
 # Ignore environment files
 .env
@@ -15,8 +14,6 @@ public/
 # Ignore log files
 *.log
 
-# Ignore package-lock.json file
-package-lock.json
 
 # Ignore IDE and editor-specific files
 .vscode/

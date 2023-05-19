@@ -13,7 +13,7 @@ export default defineConfig({
   root: './src',
 
   // Specify the public directory where your built files will be served from
-  publicDir: './public',
+  publicDir: '../public',
 
   // Configure the development server
   server: {
@@ -27,6 +27,7 @@ export default defineConfig({
         input: {
             content: 'src/content.js',
             popup: 'src/popup.js',
+            background: 'src/background.js'
         },
          output: {
             entryFileNames: '[name].js',

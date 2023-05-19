@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Image Watcher",
+  "version": "1.0",
+  "description": "Watches every image on a web page",
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [{
+    "resources": [
+      "model/*", 
+      "https://fonts.gstatic.com/s/opensans/v35/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu1aB.woff2"
+    ],
+    "matches": ["<all_urls>"]
+  }]
+}
